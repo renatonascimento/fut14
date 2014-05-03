@@ -10,6 +10,7 @@ This module implements the fut14's basic methods.
 
 import requests
 import re
+import pprint
 try:
     import simplejson as json
 except ImportError:
@@ -44,6 +45,7 @@ def baseId(resource_id, version=False):
 
 def itemParse(item_data):
     """Parser for item data. Returns nice dictionary."""
+    #pprint.pprint(item_data)
     return {
             'tradeId':       item_data.get('tradeId'),
             'buyNowPrice':   item_data.get('buyNowPrice'),
@@ -73,6 +75,11 @@ def itemParse(item_data):
             'offers':        item_data.get('offers'),
             'currentBid':    item_data.get('currentBid'),
             'expires':       item_data.get('expires'),  # seconds left
+            'sellerEstablished': item_data.get('sellerEstablished'),
+            'sellerId':      item_data.get('sellerId'),
+            'sellerName':    item_data.get('sellerName'),
+            'watched':    item_data.get('watched'),
+
         }
 
 '''  # different urls (platforms)
